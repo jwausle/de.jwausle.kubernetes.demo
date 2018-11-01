@@ -1,0 +1,31 @@
+# create pod
+kubectl run demo --image=jwausle/de.jwausle.kubernetes:demo --image-pull-policy=Never --port=8080
+
+# create service
+kubectl expose deployment demo --type=NodePort
+
+kubectl get deployments.apps -o yaml
+kubectl get service demo -o yaml
+kubectl get pod demo[TAB]
+kubectl scale --replicas=2 deployment demo
+kubectl delete pod demo[TAB]
+
+# demo endpoint
+minikube service demo --url
+curl `minikube service demo --url`/
+curl `minikube service demo --url`/help
+
+# check restart
+curl `minikube service demo --url`/kill
+curl `minikube service demo --url`/liveness
+curl `minikube service demo --url`/liveness/die
+
+# check selfhealing
+curl `minikube service demo --url`/readiness
+curl `minikube service demo --url`/readiness/unready
+sh demo/docker-exec.sh
+
+# stress the system
+curl `minikube service demo --url`/stress
+curl `minikube service demo --url`/stress/start
+sh demo/docker-exec.sh
