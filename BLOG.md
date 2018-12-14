@@ -12,7 +12,7 @@ Kubernetes ist dabei die ideale Ergänzung zu [Docker](https://www.docker.com/).
 Die Idee von Kubernetes ist die Entkopplung der Container von ihrer Serviceadresse, was durch eine Serviceschicht umgesetzt ist. 
 Somit kann jede Serviceanfrage an einen Service gestellt und von mehreren Containern beantwortet werden. Jeder Service ist somit horizontal skallierbar.
 
-> <img src="doc/kubernetes.png" alt="drawing" style="width:400px;"/>
+> <img src="doc/kubernetes.png" alt="drawing" style="width:399px;"/>
 
 Zentrale Kubernetes Instrumente sind dabei:
 
@@ -73,7 +73,7 @@ Das `initialDelaySeconds: 30` definiert die initiale Wartezeit beim Podstart, wo
 
 Zusammen mit Punkt 2. "Automatisierten up-scale von Services" kann Kubernetes Hochverfügbarkeit für jeden Service gewährleisten.
 
-> <img src="doc/layer.png" alt="drawing" style="width:400px;"/>
+> <img src="doc/layer.png" alt="drawing" style="width:399px;"/>
 
 ## 2. Automatisierter up- und down-scale von Services - durch Resourcen monitoring
 
