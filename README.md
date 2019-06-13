@@ -79,6 +79,11 @@ $ minikube service demo --url
 
 ```
 
+```
+# get apiserver access token
+kubectl get secret $(kubectl get serviceaccount default -o json | jq -r '.secrets[].name') -o yaml | grep "token:" | awk {'print $2'} |  base64 -d
+```
+
 # Links
 
 Kubernetes service types [NodePort/LoadBalancer/Ingress](https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0)
